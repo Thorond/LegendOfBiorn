@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class People : MonoBehaviour {
 
+	private Slaves[] slaves;
+	private int nbrOfSlave;
+	private Viking[] vikings;
+	private int nbrOfVikings;
+	private ShieldMaiden[] shieldMaidens;
+	private int nbrOfShielMaidens;
+
+	
+
 	// Use this for initialization
 	void Start () {
 		

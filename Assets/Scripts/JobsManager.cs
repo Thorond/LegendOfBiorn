@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JobsManager : MonoBehaviour {
+public class JobsManager : Singleton<JobsManager> {
 
 	private JobsBtn jobsBtnPressed;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class JobsManager : MonoBehaviour {
 
 	public void selectedJob(JobsBtn jobSelected){
 		jobsBtnPressed = jobSelected;
-		// Debug.Log("Pressed :" + jobsBtnPressed.gameObject);
+
+
+		Debug.Log("Pressed :" + jobsBtnPressed.gameObject);
 	}
 }
