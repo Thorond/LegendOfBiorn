@@ -42,13 +42,8 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	void textDisplay(){
-		displayOfNbrOfPeople.text = "Slaves : " + people.NbrOfSlave.ToString()
-			+ "\nVikings : " + people.NbrOfVikings.ToString()
-			+ "\nShield-maidens : " + people.NbrOfShielMaidens.ToString() ;
-		displayOfResources.text = "Gold : " + resources.Gold.ToString()
-			+ "\nWood : " + resources.Wood.ToString()
-			+ "\nIron : " + resources.Iron.ToString()
-			+ "\nFood : " + resources.Food.ToString();
+		displayOfNbrOfPeople.text = people.textDisplay();
+		displayOfResources.text = resources.textDisplay();
 	}
 
 	

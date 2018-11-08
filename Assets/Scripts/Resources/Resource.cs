@@ -53,4 +53,14 @@ public class Resource {
 		iron = 10;
 		food = 40;
 	}
+	
+
+	// Functions
+
+	public string textDisplay(){
+		return "Gold : " + gold.ToString()
+			+ "\nWood : " + wood.ToString()
+			+ "\nIron : " + iron.ToString()
+			+ "\nFood : " + food.ToString();
+	}
 }

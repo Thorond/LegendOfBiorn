@@ -46,4 +46,12 @@ public class People  {
 		nbrOfShielMaidens = 10;
 	}
 
+	// Functions
+
+	public string textDisplay(){
+		return "Slaves : " + nbrOfSlave.ToString()
+			+ "\nVikings : " + nbrOfVikings.ToString()
+			+ "\nShield-maidens : " + nbrOfShielMaidens.ToString() ;
+	}
+
 }
