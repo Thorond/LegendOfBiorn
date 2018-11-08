@@ -9,6 +9,7 @@ public class Resource {
 	private int gold;
 	private int wood;
 	private int iron;
+	private int food;
 
 	// Getters and Setters
 
@@ -39,11 +40,17 @@ public class Resource {
 		}
 	}
 
+	public int Food{
+		get{return food;}
+		set{food = value;}
+	}
+	
 	// Constructor
 
 	public Resource(){
 		gold = 50;
 		wood = 50;
 		iron = 10;
+		food = 40;
 	}
 }

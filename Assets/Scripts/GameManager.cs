@@ -47,7 +47,8 @@ public class GameManager : Singleton<GameManager> {
 			+ "\nShield-maidens : " + people.NbrOfShielMaidens.ToString() ;
 		displayOfResources.text = "Gold : " + resources.Gold.ToString()
 			+ "\nWood : " + resources.Wood.ToString()
-			+ "\nIron : " + resources.Iron.ToString();
+			+ "\nIron : " + resources.Iron.ToString()
+			+ "\nFood : " + resources.Food.ToString();
 	}
 
 	

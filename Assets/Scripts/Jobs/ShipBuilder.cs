@@ -10,8 +10,8 @@ public class ShipBuilder : Jobs {
 		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
-	public override void determineQuantityAndDuration(int nbrOfWorker){
-		durationOfWork = Math.Max(durationForOneWorker / nbrOfWorker , 1); // au moins un jour de travail
+	public override void determineQuantityAndDuration(){
+		// durationOfWork = Math.Max(durationForOneWorker / nbrOfPeopleAssigned , 1); // au moins un jour de travail
 		quantityOfProductBroughtBack = 1;
 	}
 }

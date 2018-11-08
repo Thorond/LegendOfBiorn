@@ -8,12 +8,17 @@ public class Hunting : Jobs {
 
 	public Hunting() : base() {
 		durationForOneWorker = 2;
-		quantityOfProductBroughtBackForOneWorker = 5;
+		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
-	public override void determineQuantityAndDuration(int nbrOfWorker){
-		durationOfWork = nbrOfWorker * durationForOneWorker;
-		quantityOfProductBroughtBack = nbrOfWorker * quantityOfProductBroughtBackForOneWorker;
+	public override void determineQuantityAndDuration(){
+		// durationOfWork = nbrOfPeopleAssigned * durationForOneWorker;
+		quantityOfProductBroughtBack = nbrOfPeopleAssigned * quantityOfProductBroughtBackForOneWorker;
+	}
+
+	public void updateFood(GameManager gameManager){
+		determineQuantityAndDuration();
+		gameManager.Resources.Food += quantityOfProductBroughtBack;
 	}
 
 

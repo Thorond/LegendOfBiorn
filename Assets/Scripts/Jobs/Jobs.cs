@@ -33,7 +33,7 @@ public abstract class Jobs  {
 		nbrOfPeopleAssigned = nbr;
 	}
 
-	public abstract void determineQuantityAndDuration(int nbrWorker);
+	public abstract void determineQuantityAndDuration();
 
 
 	// Getters and Setters

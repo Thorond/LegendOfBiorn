@@ -5,19 +5,21 @@ using UnityEngine.UI;
 using System;
 
 public class JobsManager : Singleton<JobsManager> {
-	[SerializeField] private GameObject upBtn;
 
+	private DateTime resourceFrequency;
+	private TimeSpan jobSpan;
 	private JobsBtn jobsBtnPressed;
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
 	private ShipBuilder myShipBuilderBuilding;
 
 	
+	[SerializeField] private GameManager gameManager;
 	[SerializeField] private Text displayOfNbrOfHunter;
 	[SerializeField] private Text displayOfNbrOfFisherMen;
 	[SerializeField] private Text displayOfNbrOfShipBuilder;
 
-	private enum tabBtnJob{
+	private enum tagBtnJob{
 		huntingBtn,
 		fishingBtn,
 		shipBuilderBtn
@@ -33,6 +35,8 @@ public class JobsManager : Singleton<JobsManager> {
 
 	// Use this for initialization
 	void Start () {
+		resourceFrequency = DateTime.Now;
+
 		myHuntingBuilding = new Hunting();
 		myFishingBuilding = new Fishing();
 		myShipBuilderBuilding = new ShipBuilder();
@@ -45,29 +49,42 @@ public class JobsManager : Singleton<JobsManager> {
 	// Update is called once per frame
 	void Update () {
 		textDisplay();
+
+		updateResources(gameManager);
 	}
 
+	void updateResources(GameManager gameManager){
+		if ( DateTime.Now.Subtract(resourceFrequency).Seconds > 10 ){
+			myHuntingBuilding.updateFood(gameManager);
+			myFishingBuilding.updateFood(gameManager);
+			resourceFrequency = DateTime.Now;
+		}
+	}
 
 	// Functions 
 	public void selectedJob(JobsBtn jobSelected){
 		jobsBtnPressed = jobSelected;
 	}
-	public void jobSettingCreation(GameManager gameManager){
+
+	public void selecteUpOrDown(GameObject upOrDownSelected){
+
+	}
+	public void jobSettingCreation(){
 		
 		setAllUpAndDownBtnInactive();
-		if ( jobsBtnPressed.tag == tabBtnJob.huntingBtn.ToString() ){
+		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
 			GameObject btnToActivate = findGameObject(tagBtn.huntingBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de chasseurs
 			if (btnToActivate) btnToActivate.SetActive(true);
 			btnToActivate = findGameObject(tagBtn.huntingBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de chasseurs
 			if (btnToActivate) btnToActivate.SetActive(true);
 		}
-		else if ( jobsBtnPressed.tag == tabBtnJob.fishingBtn.ToString() ){
+		else if ( jobsBtnPressed.tag == tagBtnJob.fishingBtn.ToString() ){
 			GameObject btnToActivate = findGameObject(tagBtn.fishingBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de pecheurs
 			if (btnToActivate) btnToActivate.SetActive(true);
 			btnToActivate = findGameObject(tagBtn.fishingBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de pecheurs
 			if (btnToActivate) btnToActivate.SetActive(true);
 		}
-		else if ( jobsBtnPressed.tag == tabBtnJob.shipBuilderBtn.ToString() ){
+		else if ( jobsBtnPressed.tag == tagBtnJob.shipBuilderBtn.ToString() ){
 			GameObject btnToActivate = findGameObject(tagBtn.shipBuilderBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de shipbuilder
 			if (btnToActivate) btnToActivate.SetActive(true);
 			btnToActivate = findGameObject(tagBtn.shipBuilderBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de shipbuilder
@@ -76,7 +93,7 @@ public class JobsManager : Singleton<JobsManager> {
 
 	}
 
-	public void peopleAssignement( GameManager gameManager){
+	public void peopleAssignement( ){
 		if ( gameManager.People.NbrOfSlave > 0 ) {
 			if (  jobsBtnPressed.tag.Equals(tagBtn.huntingBtnUp.ToString())){
 				myHuntingBuilding.assignAnotherPerson();

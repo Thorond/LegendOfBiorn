@@ -6,11 +6,15 @@ public class Fishing : Jobs {
 
 	public Fishing() : base() {
 		durationForOneWorker = 4;
-		quantityOfProductBroughtBackForOneWorker = 10;
+		quantityOfProductBroughtBackForOneWorker = 2;
 	}
 	
-	public override void determineQuantityAndDuration(int nbrOfWorker){
-		durationOfWork = nbrOfWorker * durationForOneWorker;
-		quantityOfProductBroughtBack = nbrOfWorker * quantityOfProductBroughtBackForOneWorker;
+	public override void determineQuantityAndDuration(){
+		// durationOfWork = nbrOfPeopleAssigned * durationForOneWorker;
+		quantityOfProductBroughtBack = nbrOfPeopleAssigned * quantityOfProductBroughtBackForOneWorker;
+	}
+	public void updateFood(GameManager gameManager){
+		determineQuantityAndDuration();
+		gameManager.Resources.Food += quantityOfProductBroughtBack;
 	}
 }
