@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JobsManager : Singleton<JobsManager> {
 
@@ -10,18 +11,26 @@ public class JobsManager : Singleton<JobsManager> {
 	private ShipBuilder myShipBuilderBuilding;
 
 	
+	[SerializeField] private Text displayOfNbrOfHunter;
+	[SerializeField] private Text displayOfNbrOfFisherMen;
+	[SerializeField] private Text displayOfNbrOfShipBuilder;
 
 	// Use this for initialization
 	void Start () {
 		myHuntingBuilding = new Hunting();
 		myFishingBuilding = new Fishing();
 		myShipBuilderBuilding = new ShipBuilder();
+
+		textDisplay();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		textDisplay();
 	}
 
+
+	// Functions 
 	public void selectedJob(JobsBtn jobSelected){
 		jobsBtnPressed = jobSelected;
 	}
@@ -41,9 +50,11 @@ public class JobsManager : Singleton<JobsManager> {
 				gameManager.People.NbrOfSlave -= 1;
 			}
 		}
-		Debug.Log("nbr of people assigned to hunting :" + myHuntingBuilding.NbrOfPeopleAssigned);
-		Debug.Log("nbr of people assigned to fishing :" + myFishingBuilding.NbrOfPeopleAssigned);
-		Debug.Log("nbr of people assigned to ship building :" + myShipBuilderBuilding.NbrOfPeopleAssigned);
-		Debug.Log("nbr of slave available :" + gameManager.People.NbrOfSlave);
+	}
+
+	public void textDisplay(){
+		displayOfNbrOfHunter.text = "Hunters : " + myHuntingBuilding.NbrOfPeopleAssigned.ToString();
+		displayOfNbrOfFisherMen.text = "Fisher men : " + myFishingBuilding.NbrOfPeopleAssigned.ToString();
+		displayOfNbrOfShipBuilder.text = "Ship builder : " + myShipBuilderBuilding.NbrOfPeopleAssigned.ToString();
 	}
 }
