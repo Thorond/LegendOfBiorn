@@ -7,8 +7,10 @@ public class GameManager : Singleton<GameManager> {
 
 	// Variables
 	private People people;
+	private Resource resources;
 
 	[SerializeField] private Text displayOfNbrOfPeople;
+	[SerializeField] private Text displayOfResources;
 
 	// Getters and Setters
 
@@ -17,11 +19,19 @@ public class GameManager : Singleton<GameManager> {
 			return people;
 		}
 	}
+
+	public Resource Resources{
+		get{
+			return resources;
+		}
+	}
 	
 
 	// Use this for initialization
 	void Start () {
 		people = new People();
+		resources = new Resource();
+
 		textDisplay();
 		Debug.Log("Jeu lancé.");
 	}
@@ -35,6 +45,9 @@ public class GameManager : Singleton<GameManager> {
 		displayOfNbrOfPeople.text = "Slaves : " + people.NbrOfSlave.ToString()
 			+ "\nVikings : " + people.NbrOfVikings.ToString()
 			+ "\nShield-maidens : " + people.NbrOfShielMaidens.ToString() ;
+		displayOfResources.text = "Gold : " + resources.Gold.ToString()
+			+ "\nWood : " + resources.Wood.ToString()
+			+ "\nIron : " + resources.Iron.ToString();
 	}
 
 	
