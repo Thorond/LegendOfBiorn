@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class ShipBuilder : MonoBehaviour {
+public class ShipBuilder : Jobs {
 
-	// Use this for initialization
-	void Start () {
-		
+	public ShipBuilder() : base() {
+		durationForOneWorker = 4;
+		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public override void determineQuantityAndDuration(int nbrOfWorker){
+		durationOfWork = Math.Max(durationForOneWorker / nbrOfWorker , 1); // au moins un jour de travail
+		quantityOfProductBroughtBack = 1;
 	}
 }

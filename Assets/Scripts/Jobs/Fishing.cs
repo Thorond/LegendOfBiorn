@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fishing : MonoBehaviour {
+public class Fishing : Jobs {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Fishing() : base() {
+		durationForOneWorker = 4;
+		quantityOfProductBroughtBackForOneWorker = 10;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public override void determineQuantityAndDuration(int nbrOfWorker){
+		durationOfWork = nbrOfWorker * durationForOneWorker;
+		quantityOfProductBroughtBack = nbrOfWorker * quantityOfProductBroughtBackForOneWorker;
 	}
 }

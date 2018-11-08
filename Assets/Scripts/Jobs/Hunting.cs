@@ -2,33 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hunting : MonoBehaviour {
+public class Hunting : Jobs {
 
 	// Variables
-	private int nbrOfHunter;
-	
 
-	// Functions
-
-	public void addAHunter(){
-		nbrOfHunter += 1;
-	}
-	public void removeAHunter(){
-		nbrOfHunter -= 1;
-	}
-	public void addOrRemoveSeveralHunters(int nbr){
-		nbrOfHunter = nbr;
+	public Hunting() : base() {
+		durationForOneWorker = 2;
+		quantityOfProductBroughtBackForOneWorker = 5;
 	}
 	
-	// Getters and Setters
-
-	public int NbrOfHunter{
-		get{
-			return nbrOfHunter;
-		}
-		set{
-			nbrOfHunter = value;
-		}
+	public override void determineQuantityAndDuration(int nbrOfWorker){
+		durationOfWork = nbrOfWorker * durationForOneWorker;
+		quantityOfProductBroughtBack = nbrOfWorker * quantityOfProductBroughtBackForOneWorker;
 	}
 
 
