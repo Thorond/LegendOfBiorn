@@ -7,7 +7,7 @@ using System;
 public class JobsManager : Singleton<JobsManager> {
 
 	private DateTime resourceFrequency;
-	private JobsBtn jobsBtnPressed;
+	private Btn jobsBtnPressed;
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
 	private ShipBuilder myShipBuilderBuilding;
@@ -61,7 +61,7 @@ public class JobsManager : Singleton<JobsManager> {
 	}
 
 	// Functions 
-	public void selectedJob(JobsBtn jobSelected){
+	public void selectedJob(Btn jobSelected){
 		jobsBtnPressed = jobSelected;
 	}
 

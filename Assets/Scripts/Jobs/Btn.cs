@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class JobsBtn : MonoBehaviour {
+public class Btn : MonoBehaviour {
 
 	[SerializeField] private GameObject jobsObject;
 	// [SerializeField] private GameObject upBtn;
