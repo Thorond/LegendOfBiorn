@@ -34,7 +34,7 @@ public class TimeManager : Singleton<TimeManager> {
 	// Functions 
 	
 	void updateTimeElapsed(){
-		if ( DateTime.Now.Subtract(inGameDate).Seconds > 60 ){
+		if ( DateTime.Now.Subtract(inGameDate).Seconds > 29 ){
 			timeInDay +=1;
 			if (timeInDay == 365 ) {
 				timeInDay = 0;

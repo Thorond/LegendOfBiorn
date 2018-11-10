@@ -65,9 +65,6 @@ public class JobsManager : Singleton<JobsManager> {
 		jobsBtnPressed = jobSelected;
 	}
 
-	public void selecteUpOrDown(GameObject upOrDownSelected){
-
-	}
 	public void jobSettingCreation(){
 		
 		setAllUpAndDownBtnInactive();

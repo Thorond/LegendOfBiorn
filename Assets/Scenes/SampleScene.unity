@@ -163,22 +163,22 @@ Prefab:
     - target: {fileID: 224029296894240972, guid: 0a2e8880fb5ba8d409ffeb155618d427,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 482.64996
+      value: 482.92
       objectReference: {fileID: 0}
     - target: {fileID: 224029296894240972, guid: 0a2e8880fb5ba8d409ffeb155618d427,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -249.25
+      value: -247.53
       objectReference: {fileID: 0}
     - target: {fileID: 224029296894240972, guid: 0a2e8880fb5ba8d409ffeb155618d427,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 190.9
+      value: 191.45
       objectReference: {fileID: 0}
     - target: {fileID: 224029296894240972, guid: 0a2e8880fb5ba8d409ffeb155618d427,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 19.3
+      value: 36.35
       objectReference: {fileID: 0}
     - target: {fileID: 224029296894240972, guid: 0a2e8880fb5ba8d409ffeb155618d427,
         type: 2}
@@ -733,6 +733,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: jobSettingCreation
       objectReference: {fileID: 0}
+    - target: {fileID: 114680023774973830, guid: 5870a38bfb54ec446b8192f5ff19fdd0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5870a38bfb54ec446b8192f5ff19fdd0, type: 2}
   m_IsPrefabAsset: 0
@@ -780,7 +785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192, y: 56}
+  m_AnchoredPosition: {x: 191.14996, y: 40.899994}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422368339
@@ -846,7 +851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: 57}
+  m_AnchoredPosition: {x: 53, y: 40.899994}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432613578
@@ -1715,6 +1720,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114587356934953208, guid: 29849ff62a7164548ada8ea6c57975b5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29849ff62a7164548ada8ea6c57975b5, type: 2}
   m_IsPrefabAsset: 0
@@ -1825,6 +1835,15 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1660618412822134, guid: f09ae655b93a8e14c9bcb5d070f664df, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114897256528167354, guid: f09ae655b93a8e14c9bcb5d070f664df,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09ae655b93a8e14c9bcb5d070f664df, type: 2}
   m_IsPrefabAsset: 0
@@ -1888,7 +1907,7 @@ Prefab:
     - target: {fileID: 224603825367772128, guid: ca92f6158df052243ba3290b20133a95,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -68
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 224603825367772128, guid: ca92f6158df052243ba3290b20133a95,
         type: 2}
@@ -1940,6 +1959,20 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1440879717347300, guid: ca92f6158df052243ba3290b20133a95, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930422345622588, guid: ca92f6158df052243ba3290b20133a95,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419860699902554, guid: ca92f6158df052243ba3290b20133a95,
+        type: 2}
+      propertyPath: jobsObject
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca92f6158df052243ba3290b20133a95, type: 2}
   m_IsPrefabAsset: 0
@@ -2253,7 +2286,7 @@ Prefab:
     - target: {fileID: 224305837764533194, guid: 19ff82698f1381b4b8c4c819e27aee1d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -149
+      value: -164.5
       objectReference: {fileID: 0}
     - target: {fileID: 224305837764533194, guid: 19ff82698f1381b4b8c4c819e27aee1d,
         type: 2}
@@ -2305,6 +2338,15 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1729791889492752, guid: 19ff82698f1381b4b8c4c819e27aee1d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972253521709116, guid: 19ff82698f1381b4b8c4c819e27aee1d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ff82698f1381b4b8c4c819e27aee1d, type: 2}
   m_IsPrefabAsset: 0
@@ -2449,6 +2491,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114891998195468460, guid: bd2b246e215c303438f995636c5c0131,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2b246e215c303438f995636c5c0131, type: 2}
   m_IsPrefabAsset: 0
@@ -2507,7 +2554,7 @@ Prefab:
     - target: {fileID: 224101092239522418, guid: c07fb6b0867c90c4495daad250f1fb27,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -149
+      value: -157
       objectReference: {fileID: 0}
     - target: {fileID: 224101092239522418, guid: c07fb6b0867c90c4495daad250f1fb27,
         type: 2}
@@ -2559,6 +2606,15 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1822993509334964, guid: c07fb6b0867c90c4495daad250f1fb27, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114391609641104554, guid: c07fb6b0867c90c4495daad250f1fb27,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07fb6b0867c90c4495daad250f1fb27, type: 2}
   m_IsPrefabAsset: 0
@@ -2826,7 +2882,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1539540630}
+      objectReference: {fileID: 1539540631}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9265e6f76568e9243bb44871f9c2c94d, type: 2}
   m_IsPrefabAsset: 0
@@ -2835,7 +2891,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224583643781793058, guid: 9265e6f76568e9243bb44871f9c2c94d,
     type: 2}
   m_PrefabInternal: {fileID: 1539540628}
---- !u!114 &1539540630 stripped
+--- !u!114 &1539540631 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116209404543034, guid: 9265e6f76568e9243bb44871f9c2c94d,
     type: 2}
@@ -3161,7 +3217,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1741743400}
+      objectReference: {fileID: 1741743401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9265e6f76568e9243bb44871f9c2c94d, type: 2}
   m_IsPrefabAsset: 0
@@ -3170,7 +3226,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224583643781793058, guid: 9265e6f76568e9243bb44871f9c2c94d,
     type: 2}
   m_PrefabInternal: {fileID: 1741743398}
---- !u!114 &1741743400 stripped
+--- !u!114 &1741743401 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116209404543034, guid: 9265e6f76568e9243bb44871f9c2c94d,
     type: 2}
@@ -3288,6 +3344,15 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1313602960391704, guid: 303e575f2ce39f744be81c7c1eca0364, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350581133488694, guid: 303e575f2ce39f744be81c7c1eca0364,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 303e575f2ce39f744be81c7c1eca0364, type: 2}
   m_IsPrefabAsset: 0
@@ -3403,6 +3468,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 114042114426302438, guid: c4b519010dfde4447abbd10bbab2f25c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b519010dfde4447abbd10bbab2f25c, type: 2}
   m_IsPrefabAsset: 0
@@ -3461,7 +3531,7 @@ Prefab:
     - target: {fileID: 224586699394973516, guid: 8dbf515030b16fa4299937d6850e0c7a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -68
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 224586699394973516, guid: 8dbf515030b16fa4299937d6850e0c7a,
         type: 2}
@@ -3513,6 +3583,15 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 653617355}
+    - target: {fileID: 1245114030074478, guid: 8dbf515030b16fa4299937d6850e0c7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506143134850416, guid: 8dbf515030b16fa4299937d6850e0c7a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Btn, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dbf515030b16fa4299937d6850e0c7a, type: 2}
   m_IsPrefabAsset: 0
@@ -3554,7 +3633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: 55}
+  m_AnchoredPosition: {x: -188, y: 40.899994}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098160499
