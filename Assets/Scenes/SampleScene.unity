@@ -1513,6 +1513,11 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 509624113}
+    - target: {fileID: 114400550927551832, guid: 45ca0864994239d4b9b90aa7d674a6a8,
+        type: 2}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ca0864994239d4b9b90aa7d674a6a8, type: 2}
   m_IsPrefabAsset: 0
@@ -3060,6 +3065,16 @@ Prefab:
       propertyPath: timeElapsedText
       value: 
       objectReference: {fileID: 70361782}
+    - target: {fileID: 114778428278072118, guid: fc75fe654eca40942bfd9111caceadf6,
+        type: 2}
+      propertyPath: jobsManager
+      value: 
+      objectReference: {fileID: 653617355}
+    - target: {fileID: 114778428278072118, guid: fc75fe654eca40942bfd9111caceadf6,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 509624113}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc75fe654eca40942bfd9111caceadf6, type: 2}
   m_IsPrefabAsset: 0

@@ -16,10 +16,10 @@ public class Hunting : Jobs {
 		quantityOfProductBroughtBack = nbrOfPeopleAssigned * quantityOfProductBroughtBackForOneWorker;
 	}
 
-	public void updateFood(GameManager gameManager){
+	public void updateFood(GameManager gameManager, int timeSpent){
 		determineQuantityAndDuration();
-		gameManager.Resources.Food += quantityOfProductBroughtBack;
+		gameManager.Resources.Food += quantityOfProductBroughtBack * timeSpent;
+		if (gameManager.Resources.Food > gameManager.Resources.MaxFood ) gameManager.Resources.Food = gameManager.Resources.MaxFood; 
 	}
-
 
 }

@@ -7,13 +7,24 @@ using System;
 public class TimeManager : Singleton<TimeManager> {
 	
 	// Variables
+
+	private int TIME_OF_A_DAY_IN_SECONDS = 30; // a mettre dans un fichier constants
+	[SerializeField] private GameManager gameManager;
+	[SerializeField] private JobsManager jobsManager;
 	private DateTime inGameDate;
 	private int timeInYear;
 	private int timeInDay;
 	private int timeChoice;
+	private int timeElapsed;
 	[SerializeField] private Text timeElapsedText;
 
+	private DateTime resourceFrequency;
+
 	private enum tagTime{ addTime, removeTime, applyTime }
+
+	// Getters and Setters
+
+	public int TimeElapsed { get {return timeElapsed;} set{ timeElapsed = value;}}
 
 	// Use this for initialization
 	void Start () {
@@ -21,26 +32,37 @@ public class TimeManager : Singleton<TimeManager> {
 		timeInYear = 803;
 		timeInDay = 0;
 		timeChoice = 0;
-		updateTimeElapsed();
+		updateTime();
+
+		resourceFrequency = DateTime.Now;
 		textDisplay();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		updateTimeElapsed();
+		updateTime();
+		updateResources();
 		textDisplay();
 	}
 
 	// Functions 
 	
-	void updateTimeElapsed(){
-		if ( DateTime.Now.Subtract(inGameDate).Seconds > 29 ){
+	void updateTime(){
+		if ( DateTime.Now.Subtract(inGameDate).Seconds >= TIME_OF_A_DAY_IN_SECONDS ){
 			timeInDay +=1;
 			if (timeInDay == 365 ) {
 				timeInDay = 0;
 				timeInYear += 1;
 			}
 			inGameDate = DateTime.Now;
+		}
+	}
+
+	void updateTimeElapesed(){
+		timeInDay += timeElapsed;
+		if ( timeInDay >= 365 ){
+			timeInYear += timeInDay / 365;
+			timeInDay = timeInDay%365;
 		}
 	}
 
@@ -51,8 +73,25 @@ public class TimeManager : Singleton<TimeManager> {
 			} else if ( btnSelected.tag.Equals(tagTime.addTime.ToString())){
 				timeChoice += 1;
 			} else if ( btnSelected.tag.Equals(tagTime.applyTime.ToString())){
+				timeElapsed = timeChoice;
+				updateTimeElapesed();
+				inGameDate = DateTime.Now;
+				resourceFrequency = DateTime.Now;
 				timeChoice = 0;
-				// TODO fonction de gestion du temps
+			}
+		}
+	}
+	
+	void updateResources(){
+		if ( timeElapsed > 0 ){
+			jobsManager.MyHuntingBuilding.updateFood(gameManager,timeElapsed * 3);
+			jobsManager.MyFishingBuilding.updateFood(gameManager,timeElapsed * 3);
+			timeElapsed = 0;
+		} else {
+			if ( DateTime.Now.Subtract(resourceFrequency).Seconds > TIME_OF_A_DAY_IN_SECONDS / 3 ){
+				jobsManager.MyHuntingBuilding.updateFood(gameManager,1);
+				jobsManager.MyFishingBuilding.updateFood(gameManager,1);
+				resourceFrequency = DateTime.Now;
 			}
 		}
 	}

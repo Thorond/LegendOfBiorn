@@ -6,7 +6,7 @@ using System;
 
 public class JobsManager : Singleton<JobsManager> {
 
-	private DateTime resourceFrequency;
+	// Variables
 	private Btn jobsBtnPressed;
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
@@ -32,9 +32,14 @@ public class JobsManager : Singleton<JobsManager> {
 		shipBuilderBtnDown
 	}
 
+	// Getters and Setters
+
+	public Hunting MyHuntingBuilding { get{return myHuntingBuilding;}}
+	public Fishing MyFishingBuilding { get{return myFishingBuilding;}}
+	public ShipBuilder MyShipBuilderBuilding { get{return myShipBuilderBuilding;}}
+
 	// Use this for initialization
 	void Start () {
-		resourceFrequency = DateTime.Now;
 
 		myHuntingBuilding = new Hunting();
 		myFishingBuilding = new Fishing();
@@ -49,16 +54,8 @@ public class JobsManager : Singleton<JobsManager> {
 	void Update () {
 		textDisplay();
 
-		updateResources(gameManager);
 	}
 
-	void updateResources(GameManager gameManager){
-		if ( DateTime.Now.Subtract(resourceFrequency).Seconds > 10 ){
-			myHuntingBuilding.updateFood(gameManager);
-			myFishingBuilding.updateFood(gameManager);
-			resourceFrequency = DateTime.Now;
-		}
-	}
 
 	// Functions 
 	public void selectedJob(Btn jobSelected){
