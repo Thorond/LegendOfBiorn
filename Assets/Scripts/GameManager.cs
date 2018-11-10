@@ -41,6 +41,9 @@ public class GameManager : Singleton<GameManager> {
 		textDisplay();
 	}
 
+
+	// Functions 
+	
 	void textDisplay(){
 		displayOfNbrOfPeople.text = people.textDisplay();
 		displayOfResources.text = resources.textDisplay();

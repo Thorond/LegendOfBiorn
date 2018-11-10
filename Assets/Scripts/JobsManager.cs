@@ -7,7 +7,6 @@ using System;
 public class JobsManager : Singleton<JobsManager> {
 
 	private DateTime resourceFrequency;
-	private TimeSpan jobSpan;
 	private JobsBtn jobsBtnPressed;
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
