@@ -15,7 +15,7 @@ public class Resource {
 	private int food;
 	private int maxFood;
 
-	private Ships[] ships;
+	private Ships ships;
 	private People people;
 
 	// Getters and Setters
@@ -53,10 +53,13 @@ public class Resource {
 	}
 	public int MaxFood{get{return maxFood;}}
 
-	public Ships[] Ships{
+	public Ships Ships{
 		get{return ships;}
-		set{ships = value;} // a verifer ça 
+		set{ships = value;} // ??
 	}
+	// public int ShipsNbrOfShipType1{ // Necessaire??
+	// 	set{ships.NbrOfShipType1 = value;}
+	// }
 
 	public People People{
 		get {
@@ -76,7 +79,7 @@ public class Resource {
 		maxIron = 50;
 		food = 40;
 		maxFood = 160;
-		// ships.Append()
+		ships = new Ships();
 		people = new People();
 	}
 	
@@ -87,6 +90,7 @@ public class Resource {
 		return "Gold : " + gold.ToString()
 			+ "\nWood : " + wood.ToString()
 			+ "\nIron : " + iron.ToString()
-			+ "\nFood : " + food.ToString();
+			+ "\nFood : " + food.ToString()
+			+ "\nShips : " + ships.NbrOfShipType1.ToString();
 	}
 }
