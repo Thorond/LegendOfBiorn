@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : Singleton<GameManager> {
 
 	// Variables
-	private People people;
 	private Resource resources;
 
 	[SerializeField] private Text displayOfNbrOfPeople;
@@ -14,11 +13,6 @@ public class GameManager : Singleton<GameManager> {
 
 	// Getters and Setters
 
-	public People People{
-		get {
-			return people;
-		}
-	}
 
 	public Resource Resources{
 		get{
@@ -29,7 +23,6 @@ public class GameManager : Singleton<GameManager> {
 
 	// Use this for initialization
 	void Start () {
-		people = new People();
 		resources = new Resource();
 
 		textDisplay();
@@ -45,7 +38,7 @@ public class GameManager : Singleton<GameManager> {
 	// Functions 
 	
 	void textDisplay(){
-		displayOfNbrOfPeople.text = people.textDisplay();
+		displayOfNbrOfPeople.text = resources.People.textDisplay();
 		displayOfResources.text = resources.textDisplay();
 	}
 

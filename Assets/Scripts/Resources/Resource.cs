@@ -15,6 +15,9 @@ public class Resource {
 	private int food;
 	private int maxFood;
 
+	private Ships[] ships;
+	private People people;
+
 	// Getters and Setters
 
 	public int Gold{
@@ -49,6 +52,19 @@ public class Resource {
 		set{food = value;}
 	}
 	public int MaxFood{get{return maxFood;}}
+
+	public Ships[] Ships{
+		get{return ships;}
+		set{ships = value;} // a verifer ça 
+	}
+
+	public People People{
+		get {
+			return people;
+		}
+	}
+
+	
 	// Constructor
 
 	public Resource(){
@@ -60,6 +76,8 @@ public class Resource {
 		maxIron = 50;
 		food = 40;
 		maxFood = 160;
+		// ships.Append()
+		people = new People();
 	}
 	
 

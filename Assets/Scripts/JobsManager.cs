@@ -87,27 +87,27 @@ public class JobsManager : Singleton<JobsManager> {
 	}
 
 	public void peopleAssignement( ){
-		if ( gameManager.People.NbrOfSlave > 0 ) {
+		if ( gameManager.Resources.People.NbrOfSlave > 0 ) {
 			if (  jobsBtnPressed.tag.Equals(tagBtn.huntingBtnUp.ToString())){
 				myHuntingBuilding.assignAnotherPerson();
-				gameManager.People.NbrOfSlave -= 1;
+				gameManager.Resources.People.NbrOfSlave -= 1;
 			} else if ( jobsBtnPressed.tag.Equals(tagBtn.fishingBtnUp.ToString())){
 				myFishingBuilding.assignAnotherPerson();
-				gameManager.People.NbrOfSlave -= 1;
+				gameManager.Resources.People.NbrOfSlave -= 1;
 			} else if ( jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnUp.ToString())){
 				myShipBuilderBuilding.assignAnotherPerson();
-				gameManager.People.NbrOfSlave -= 1;
+				gameManager.Resources.People.NbrOfSlave -= 1;
 			}
 		}
 		if (jobsBtnPressed.tag.Equals(tagBtn.huntingBtnDown.ToString()) && myHuntingBuilding.NbrOfPeopleAssigned > 0 ){
 			myHuntingBuilding.removeAPerson();
-			gameManager.People.NbrOfSlave += 1;
+			gameManager.Resources.People.NbrOfSlave += 1;
 		} else if (jobsBtnPressed.tag.Equals(tagBtn.fishingBtnDown.ToString()) && myFishingBuilding.NbrOfPeopleAssigned > 0  ){
 			myFishingBuilding.removeAPerson();
-			gameManager.People.NbrOfSlave += 1;
+			gameManager.Resources.People.NbrOfSlave += 1;
 		} else if (jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnDown.ToString()) && myShipBuilderBuilding.NbrOfPeopleAssigned > 0 ){
 			myShipBuilderBuilding.removeAPerson();
-			gameManager.People.NbrOfSlave += 1;
+			gameManager.Resources.People.NbrOfSlave += 1;
 		}
 	}
 
