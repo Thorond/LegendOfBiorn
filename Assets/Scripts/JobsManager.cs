@@ -116,8 +116,7 @@ public class JobsManager : Singleton<JobsManager> {
 			if ( myShipBuilderBuilding.NbrOfAssignedPeopleChosen > 0) myShipBuilderBuilding.NbrOfAssignedPeopleChosen -= 1;
 		}
 		if ( jobsBtnPressed.tag.Equals(tagBtn.applyShipBuilder.ToString()) && !myShipBuilderBuilding.WorkInProgress ){
-			myShipBuilderBuilding.assignWork();
-			gameManager.Resources.People.NbrOfSlave -= myShipBuilderBuilding.NbrOfAssignedPeopleChosen;
+			myShipBuilderBuilding.assignWork(gameManager.Resources.People);
 		}
 	}
 
