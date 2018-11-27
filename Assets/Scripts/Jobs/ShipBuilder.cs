@@ -27,34 +27,34 @@ public class ShipBuilder : Jobs {
 		quantityOfProductBroughtBack = 1;
 	}
 
-	// public void assignWork(People people){
-	// 	if (nbrOfAssignedPeopleChosen > 0 ){
-	// 		addOrRemoveSeveralPerson(nbrOfAssignedPeopleChosen);
-	// 		workInProgress = true;
-	// 		people.NbrOfSlave -= nbrOfAssignedPeopleChosen;
-	// 		nbrOfAssignedPeopleChosen = 0;
-	// 		constructShip();
-	// 	}
-	// }
-	// public void closeAssignment(){
-	// 	if ( !workInProgress) nbrOfAssignedPeopleChosen = 0;
-	// }
+	public void assignWork(People people){
+		if (nbrOfAssignedPeopleChosen > 0 ){
+			addOrRemoveSeveralSlave(nbrOfAssignedPeopleChosen);
+			workInProgress = true;
+			people.NbrOfSlave -= nbrOfAssignedPeopleChosen;
+			nbrOfAssignedPeopleChosen = 0;
+			constructShip();
+		}
+	}
+	public void closeAssignment(){
+		if ( !workInProgress) nbrOfAssignedPeopleChosen = 0;
+	}
 
-	// public void constructShip(){
-	// 	remainingTimeForConstruction = 4;
-	// }
-	// public void inConstruction(Ships ships, People people){
-	// 	if ( workInProgress) {
-	// 		if ( remainingTimeForConstruction <= 0 ){
-	// 			// rajouter un navire dans Ships, differencier en fonction du type
-	// 			ships.NbrOfShipType1 +=1;
-	// 			// rajouter le nombre de slave
-	// 			people.NbrOfSlave += nbrOfPeopleAssigned;
-	// 			nbrOfPeopleAssigned = 0;
-	// 			workInProgress = false;
-	// 		} else if ( remainingTimeForConstruction > 0 ){
-	// 			remainingTimeForConstruction -= 1;
-	// 		}
-	// 	} 
-	// }
+	public void constructShip(){
+		remainingTimeForConstruction = 4;
+	}
+	public void inConstruction(Ships ships, People people){
+		if ( workInProgress) {
+			if ( remainingTimeForConstruction <= 0 ){
+				// rajouter un navire dans Ships, differencier en fonction du type
+				ships.NbrOfShipType1 +=1;
+				// rajouter le nombre de slave
+				people.NbrOfSlave += nbrOfSlaveAssigned;
+				nbrOfSlaveAssigned = 0;
+				workInProgress = false;
+			} else if ( remainingTimeForConstruction > 0 ){
+				remainingTimeForConstruction -= 1;
+			}
+		} 
+	}
 }

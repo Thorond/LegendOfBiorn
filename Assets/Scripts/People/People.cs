@@ -10,7 +10,7 @@ public class People  {
 	private Viking vikings;
 	private int nbrOfVikings;
 	private ShieldMaiden shieldMaidens;
-	private int nbrOfShielMaidens;
+	private int nbrOfShieldMaidens;
 
 	// Getters and Setters 
 
@@ -33,12 +33,12 @@ public class People  {
 			nbrOfVikings = value;
 		}
 	}
-	public int NbrOfShielMaidens{
+	public int NbrOfShieldMaidens{
 		get{
-			return nbrOfShielMaidens;
+			return nbrOfShieldMaidens;
 		}
 		set{
-			nbrOfShielMaidens = value;
+			nbrOfShieldMaidens = value;
 		}
 	}
 
@@ -46,7 +46,7 @@ public class People  {
 	public People(){
 		nbrOfSlave = 5;
 		nbrOfVikings = 20;
-		nbrOfShielMaidens = 10;
+		nbrOfShieldMaidens = 10;
 	}
 
 	// Functions
@@ -54,7 +54,7 @@ public class People  {
 	public string textDisplay(){
 		return "Slaves : " + nbrOfSlave.ToString()
 			+ "\nVikings : " + nbrOfVikings.ToString()
-			+ "\nShield-maidens : " + nbrOfShielMaidens.ToString() ;
+			+ "\nShield-maidens : " + nbrOfShieldMaidens.ToString() ;
 	}
 
 }

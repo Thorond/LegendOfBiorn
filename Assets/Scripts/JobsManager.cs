@@ -36,7 +36,10 @@ public class JobsManager : Singleton<JobsManager> {
 		shipBuilderBtnDown
 	}
 	private enum tagPanel{
-		HuntingPanel
+		HuntingPanel,
+		FishingPanel,
+		ShipBuildingPanel,
+		RawMaterialPanel
 	}
 
 	private enum tagUpOrDown{
@@ -63,7 +66,7 @@ public class JobsManager : Singleton<JobsManager> {
 
 		textDisplay();
 
-		setAllUpAndDownBtnInactive();
+		setAllJobPanelInactive();
 	}
 	
 	// Update is called once per frame
@@ -83,13 +86,9 @@ public class JobsManager : Singleton<JobsManager> {
 
 	public void jobSettingCreation(){
 		
-		setAllUpAndDownBtnInactive();
-		// myShipBuilderBuilding.closeAssignment();
+		setAllJobPanelInactive();
+		myShipBuilderBuilding.closeAssignment();
 		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
-			// GameObject btnToActivate = findGameObject(tagBtn.huntingBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de chasseurs
-			// if (btnToActivate) btnToActivate.SetActive(true);
-			// btnToActivate = findGameObject(tagBtn.huntingBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de chasseurs
-			// if (btnToActivate) btnToActivate.SetActive(true);
 			GameObject btnToActivate = findGameObject(tagPanel.HuntingPanel.ToString()); // Afficher le panel de la chasse
 			if (btnToActivate) btnToActivate.SetActive(true);
 		}
@@ -119,6 +118,20 @@ public class JobsManager : Singleton<JobsManager> {
 			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downSlave.ToString() && myHuntingBuilding.NbrOfSlaveAssigned > 0 ){
 				myHuntingBuilding.removeASlave();
 				gameManager.Resources.People.NbrOfSlave += 1;
+			} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upViking.ToString() && gameManager.Resources.People.NbrOfVikings > 0 ){
+				myHuntingBuilding.assignAnotherViking();
+				gameManager.Resources.People.NbrOfVikings -= 1;
+			}
+			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downViking.ToString() && myHuntingBuilding.NbrOfVikingAssigned > 0 ){
+				myHuntingBuilding.removeAViking();
+				gameManager.Resources.People.NbrOfVikings += 1;
+			} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upShieldMaiden.ToString() && gameManager.Resources.People.NbrOfShieldMaidens > 0 ){
+				myHuntingBuilding.assignAnotherShieldMaiden();
+				gameManager.Resources.People.NbrOfShieldMaidens -= 1;
+			}
+			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downShieldMaiden.ToString() && myHuntingBuilding.NbrOfShieldMaidenAssigned > 0 ){
+				myHuntingBuilding.removeAShieldMaiden();
+				gameManager.Resources.People.NbrOfShieldMaidens += 1;
 			}
 		} 
 		if ( gameManager.Resources.People.NbrOfSlave > 0 ) {
@@ -145,15 +158,21 @@ public class JobsManager : Singleton<JobsManager> {
 
 
 	public void textDisplay(){
-		// displayOfNbrOfHunter.text = "Hunters : " + myHuntingBuilding.NbrOfPeopleAssigned.ToString();
-		// displayOfNbrOfFisherMen.text = "Fisher men : " + myFishingBuilding.NbrOfPeopleAssigned.ToString();
-		// displayOfNbrOfShipBuilder.text = "Ship builder : " + myShipBuilderBuilding.NbrOfPeopleAssigned.ToString();
-		// displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
+		displayOfNbrOfHunter.text = "Hunting : \n Vikings : " + myHuntingBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n ShieldMaidens : "  + myHuntingBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n Slaves : "  + myHuntingBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfFisherMen.text = "Fishing : \n Vikings :" + myFishingBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n ShieldMaidens : "  + myFishingBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n Slaves : "  + myFishingBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfShipBuilder.text = "Ship building : \n Vikings : " + myShipBuilderBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n ShieldMaidens : "  + myShipBuilderBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n Slaves : "  + myShipBuilderBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
 	}
 
-	public void setAllUpAndDownBtnInactive(){
+	public void setAllJobPanelInactive(){
 		foreach ( GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject))){
-			foreach( tagBtn tagou in Enum.GetValues(typeof(tagBtn)))
+			foreach( tagPanel tagou in Enum.GetValues(typeof(tagPanel)))
 				if ( go.tag.Equals(tagou.ToString())) go.SetActive(false);
 		} ;
 	}
