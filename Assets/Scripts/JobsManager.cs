@@ -8,6 +8,8 @@ public class JobsManager : Singleton<JobsManager> {
 
 	// Variables
 	private Btn jobsBtnPressed;
+	private Btn upOrDownBtnPressed;
+
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
 	private ShipBuilder myShipBuilderBuilding;
@@ -32,6 +34,18 @@ public class JobsManager : Singleton<JobsManager> {
 		shipBuilderBtnUp,
 		applyShipBuilder,
 		shipBuilderBtnDown
+	}
+	private enum tagPanel{
+		HuntingPanel
+	}
+
+	private enum tagUpOrDown{
+		upViking,
+		downViking,
+		upShieldMaiden,
+		downShieldMaiden,
+		upSlave,
+		downSlave
 	}
 
 	// Getters and Setters
@@ -63,15 +77,20 @@ public class JobsManager : Singleton<JobsManager> {
 	public void selectedJob(Btn jobSelected){
 		jobsBtnPressed = jobSelected;
 	}
+	public void selectedUpOrDown(Btn btnSelected){
+		upOrDownBtnPressed = btnSelected;
+	}
 
 	public void jobSettingCreation(){
 		
 		setAllUpAndDownBtnInactive();
-		myShipBuilderBuilding.closeAssignment();
+		// myShipBuilderBuilding.closeAssignment();
 		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
-			GameObject btnToActivate = findGameObject(tagBtn.huntingBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de chasseurs
-			if (btnToActivate) btnToActivate.SetActive(true);
-			btnToActivate = findGameObject(tagBtn.huntingBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de chasseurs
+			// GameObject btnToActivate = findGameObject(tagBtn.huntingBtnUp.ToString()); // Afficher le bouton pour augmenter le nomrbe de chasseurs
+			// if (btnToActivate) btnToActivate.SetActive(true);
+			// btnToActivate = findGameObject(tagBtn.huntingBtnDown.ToString()); // Afficher le bouton pour diminuer le nomrbe de chasseurs
+			// if (btnToActivate) btnToActivate.SetActive(true);
+			GameObject btnToActivate = findGameObject(tagPanel.HuntingPanel.ToString()); // Afficher le panel de la chasse
 			if (btnToActivate) btnToActivate.SetActive(true);
 		}
 		else if ( jobsBtnPressed.tag == tagBtnJob.fishingBtn.ToString() ){
@@ -92,40 +111,44 @@ public class JobsManager : Singleton<JobsManager> {
 	}
 
 	public void peopleAssignement( ){
-		if ( gameManager.Resources.People.NbrOfSlave > 0 ) {
-			if (  jobsBtnPressed.tag.Equals(tagBtn.huntingBtnUp.ToString())){
-				myHuntingBuilding.assignAnotherPerson();
+		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
+			if ( upOrDownBtnPressed.tag == tagUpOrDown.upSlave.ToString() && gameManager.Resources.People.NbrOfSlave > 0 ){
+				myHuntingBuilding.assignAnotherSlave();
 				gameManager.Resources.People.NbrOfSlave -= 1;
-			} else if ( jobsBtnPressed.tag.Equals(tagBtn.fishingBtnUp.ToString())){
-				myFishingBuilding.assignAnotherPerson();
-				gameManager.Resources.People.NbrOfSlave -= 1;
-			} 
-			if (gameManager.Resources.People.NbrOfSlave > myShipBuilderBuilding.NbrOfAssignedPeopleChosen ){
-				if ( jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnUp.ToString()) && !myShipBuilderBuilding.WorkInProgress ){
-					myShipBuilderBuilding.NbrOfAssignedPeopleChosen += 1;
-				}
 			}
+			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downSlave.ToString() && myHuntingBuilding.NbrOfSlaveAssigned > 0 ){
+				myHuntingBuilding.removeASlave();
+				gameManager.Resources.People.NbrOfSlave += 1;
+			}
+		} 
+		if ( gameManager.Resources.People.NbrOfSlave > 0 ) {
+			// if ( jobsBtnPressed.tag.Equals(tagBtn.fishingBtnUp.ToString())){
+			// 	myFishingBuilding.assignAnotherPerson();
+			// 	gameManager.Resources.People.NbrOfSlave -= 1;
+			// } 
+			// if (gameManager.Resources.People.NbrOfSlave > myShipBuilderBuilding.NbrOfAssignedPeopleChosen ){
+			// 	if ( jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnUp.ToString()) && !myShipBuilderBuilding.WorkInProgress ){
+			// 		myShipBuilderBuilding.NbrOfAssignedPeopleChosen += 1;
+			// 	}
+			// }
 		}
-		if (jobsBtnPressed.tag.Equals(tagBtn.huntingBtnDown.ToString()) && myHuntingBuilding.NbrOfPeopleAssigned > 0 ){
-			myHuntingBuilding.removeAPerson();
-			gameManager.Resources.People.NbrOfSlave += 1;
-		} else if (jobsBtnPressed.tag.Equals(tagBtn.fishingBtnDown.ToString()) && myFishingBuilding.NbrOfPeopleAssigned > 0  ){
-			myFishingBuilding.removeAPerson();
-			gameManager.Resources.People.NbrOfSlave += 1;
-		} else if (jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnDown.ToString()) && !myShipBuilderBuilding.WorkInProgress){
-			if ( myShipBuilderBuilding.NbrOfAssignedPeopleChosen > 0) myShipBuilderBuilding.NbrOfAssignedPeopleChosen -= 1;
-		}
-		if ( jobsBtnPressed.tag.Equals(tagBtn.applyShipBuilder.ToString()) && !myShipBuilderBuilding.WorkInProgress ){
-			myShipBuilderBuilding.assignWork(gameManager.Resources.People);
-		}
+		// if (jobsBtnPressed.tag.Equals(tagBtn.fishingBtnDown.ToString()) && myFishingBuilding.NbrOfPeopleAssigned > 0  ){
+		// 	myFishingBuilding.removeAPerson();
+		// 	gameManager.Resources.People.NbrOfSlave += 1;
+		// } else if (jobsBtnPressed.tag.Equals(tagBtn.shipBuilderBtnDown.ToString()) && !myShipBuilderBuilding.WorkInProgress){
+		// 	if ( myShipBuilderBuilding.NbrOfAssignedPeopleChosen > 0) myShipBuilderBuilding.NbrOfAssignedPeopleChosen -= 1;
+		// }
+		// if ( jobsBtnPressed.tag.Equals(tagBtn.applyShipBuilder.ToString()) && !myShipBuilderBuilding.WorkInProgress ){
+		// 	myShipBuilderBuilding.assignWork(gameManager.Resources.People);
+		// }
 	}
 
 
 	public void textDisplay(){
-		displayOfNbrOfHunter.text = "Hunters : " + myHuntingBuilding.NbrOfPeopleAssigned.ToString();
-		displayOfNbrOfFisherMen.text = "Fisher men : " + myFishingBuilding.NbrOfPeopleAssigned.ToString();
-		displayOfNbrOfShipBuilder.text = "Ship builder : " + myShipBuilderBuilding.NbrOfPeopleAssigned.ToString();
-		displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
+		// displayOfNbrOfHunter.text = "Hunters : " + myHuntingBuilding.NbrOfPeopleAssigned.ToString();
+		// displayOfNbrOfFisherMen.text = "Fisher men : " + myFishingBuilding.NbrOfPeopleAssigned.ToString();
+		// displayOfNbrOfShipBuilder.text = "Ship builder : " + myShipBuilderBuilding.NbrOfPeopleAssigned.ToString();
+		// displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
 	}
 
 	public void setAllUpAndDownBtnInactive(){

@@ -5,15 +5,18 @@ using UnityEngine;
 public class People  {
 
 	// Variables
-	private Slaves[] slaves;
+	private Slaves slaves;
 	private int nbrOfSlave;
-	private Viking[] vikings;
+	private Viking vikings;
 	private int nbrOfVikings;
-	private ShieldMaiden[] shieldMaidens;
+	private ShieldMaiden shieldMaidens;
 	private int nbrOfShielMaidens;
 
 	// Getters and Setters 
 
+	public Slaves Slaves{get{return slaves;}}
+	public Viking Vikings{get{return vikings;}}
+	public ShieldMaiden ShieldMaidens{get{return shieldMaidens;}}
 	public int NbrOfSlave{
 		get{
 			return nbrOfSlave;

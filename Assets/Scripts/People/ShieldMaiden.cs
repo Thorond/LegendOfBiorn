@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldMaiden : MonoBehaviour {
+public class ShieldMaiden : Inhabitant {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public ShieldMaiden() : base() {
+		this.foodGatheringEfficiency = 6;
+		this.woodGatheringEfficiency = 3;
+		this.ironGatheringEfficiency = 3;
+		this.shipConstructionEffeciency = 4;
+		this.battleEfficiency = 8;
 	}
 }
