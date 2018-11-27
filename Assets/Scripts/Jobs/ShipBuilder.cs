@@ -17,8 +17,6 @@ public class ShipBuilder : Jobs {
 
 	// Constructor
 	public ShipBuilder() : base() {
-		durationForOneWorker = 4;
-		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
 	// Functions 

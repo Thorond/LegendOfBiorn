@@ -10,10 +10,7 @@ public abstract class Jobs  {
 	protected int nbrOfShieldMaidenAssigned;
 	protected int nbrOfSlaveAssigned;
 
-	protected int durationOfWork;
-	protected int durationForOneWorker;
 	protected int quantityOfProductBroughtBack;
-	protected int quantityOfProductBroughtBackForOneWorker;
 
 	
 	// Constructor
@@ -21,8 +18,6 @@ public abstract class Jobs  {
 		nbrOfVikingAssigned = 0;
 		nbrOfShieldMaidenAssigned = 0;
 		nbrOfSlaveAssigned = 0;
-
-		durationOfWork = 0;
 		quantityOfProductBroughtBack = 0;
 	}
 

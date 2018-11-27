@@ -11,9 +11,9 @@ public class Hunting : Jobs {
 	
 	public override void determineQuantity(GameManager gameManager){
 		quantityOfProductBroughtBack = 0;
-		quantityOfProductBroughtBack += nbrOfVikingAssigned * gameManager.Resources.People.Vikings.FoodGatheringEfficiency;
-		quantityOfProductBroughtBack += nbrOfShieldMaidenAssigned * gameManager.Resources.People.ShieldMaidens.FoodGatheringEfficiency;
-		quantityOfProductBroughtBack += nbrOfSlaveAssigned * gameManager.Resources.People.Slaves.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += this.nbrOfVikingAssigned * gameManager.Resources.People.Vikings.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += this.nbrOfShieldMaidenAssigned * gameManager.Resources.People.ShieldMaidens.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += this.nbrOfSlaveAssigned * gameManager.Resources.People.Slaves.FoodGatheringEfficiency;
 	}
 	public void updateFood(GameManager gameManager, int timeSpent){
 		determineQuantity(gameManager);

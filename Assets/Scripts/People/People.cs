@@ -44,6 +44,9 @@ public class People  {
 
 	// Constructor
 	public People(){
+		slaves = new Slaves();
+		shieldMaidens = new ShieldMaiden();
+		vikings = new Viking();
 		nbrOfSlave = 5;
 		nbrOfVikings = 20;
 		nbrOfShieldMaidens = 10;
