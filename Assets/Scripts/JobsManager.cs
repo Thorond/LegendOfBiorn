@@ -23,6 +23,8 @@ public class JobsManager : Singleton<JobsManager> {
 	[SerializeField] private Text displayOfNbrOfFisherMen;
 	[SerializeField] private Text displayOfNbrOfShipBuilder;
 	[SerializeField] private Text displayOfNbrOfShip;
+	[SerializeField] private Text displayOfWoodWorkers;
+	[SerializeField] private Text displayOfIronWorkers;
 	[SerializeField] private Text displayOfEfficiencyOfAViking;
 	[SerializeField] private Text displayOfEfficiencyOfAShieldMaiden;
 	[SerializeField] private Text displayOfEfficiencyOfASlave;
@@ -202,15 +204,21 @@ public class JobsManager : Singleton<JobsManager> {
 
 
 	public void textDisplay(){
-		displayOfNbrOfHunter.text = "Hunting : \n Vikings : " + myHuntingBuilding.NbrOfVikingAssigned.ToString()
-				+ "\n ShieldMaidens : "  + myHuntingBuilding.NbrOfShieldMaidenAssigned.ToString()
-				+ "\n Slaves : "  + myHuntingBuilding.NbrOfSlaveAssigned.ToString();
-		displayOfNbrOfFisherMen.text = "Fishing : \n Vikings :" + myFishingBuilding.NbrOfVikingAssigned.ToString()
-				+ "\n ShieldMaidens : "  + myFishingBuilding.NbrOfShieldMaidenAssigned.ToString()
-				+ "\n Slaves : "  + myFishingBuilding.NbrOfSlaveAssigned.ToString();
-		displayOfNbrOfShipBuilder.text = "Ship building : \n Vikings : " + myShipBuilderBuilding.NbrOfVikingAssigned.ToString()
-				+ "\n ShieldMaidens : "  + myShipBuilderBuilding.NbrOfShieldMaidenAssigned.ToString()
-				+ "\n Slaves : "  + myShipBuilderBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfHunter.text = "Hunting : \n" + myHuntingBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n"  + myHuntingBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n"  + myHuntingBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfFisherMen.text = "Fishing : \n" + myFishingBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n"  + myFishingBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n"  + myFishingBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfNbrOfShipBuilder.text = "Ships Workers : \n" + myShipBuilderBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n"  + myShipBuilderBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n"  + myShipBuilderBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfWoodWorkers.text = "Wood Workers : \n" + myWoodBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n"  + myWoodBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n"  + myWoodBuilding.NbrOfSlaveAssigned.ToString();
+		displayOfIronWorkers.text = "Iron Workers : \n" + myMineralBuilding.NbrOfVikingAssigned.ToString()
+				+ "\n"  + myMineralBuilding.NbrOfShieldMaidenAssigned.ToString()
+				+ "\n"  + myMineralBuilding.NbrOfSlaveAssigned.ToString();
 		displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
 
 

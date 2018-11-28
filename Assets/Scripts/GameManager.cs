@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager> {
 	// Variables
 	private Resource resources;
 
+	[SerializeField] private Text nameOfPeople;
 	[SerializeField] private Text displayOfNbrOfPeople;
 	[SerializeField] private Text displayOfResources;
 
@@ -38,6 +39,7 @@ public class GameManager : Singleton<GameManager> {
 	// Functions 
 	
 	void textDisplay(){
+		nameOfPeople.text = resources.People.nameOfPeopleDisplay();
 		displayOfNbrOfPeople.text = resources.People.textDisplay();
 		displayOfResources.text = resources.textDisplay();
 	}

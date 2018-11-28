@@ -53,11 +53,15 @@ public class People  {
 	}
 
 	// Functions
-
+	public string nameOfPeopleDisplay(){
+		return "\nVikings : " 
+			+ "\nShield-maidens : " 
+			+ "\nSlaves : " ;
+	}
 	public string textDisplay(){
-		return "Slaves : " + nbrOfSlave.ToString()
-			+ "\nVikings : " + nbrOfVikings.ToString()
-			+ "\nShield-maidens : " + nbrOfShieldMaidens.ToString() ;
+		return "Available : \n" + nbrOfVikings.ToString()
+			+ "\n " + nbrOfShieldMaidens.ToString()
+			+ "\n" + nbrOfSlave.ToString() ;
 	}
 
 }
