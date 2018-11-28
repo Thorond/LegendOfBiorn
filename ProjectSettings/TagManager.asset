@@ -3,7 +3,34 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Canvas
+  - backgroundBtn
+  - fishingBtnUp
+  - huntingBtnUp
+  - shipBuilderBtnDown
+  - shipBuilderBtn
+  - huntingBtnDown
+  - huntingBtn
+  - fishingBtnDown
+  - rawMaterialBtn
+  - shipBuilderBtnUp
+  - fishingBtn
+  - applyShipBuilder
+  - addTime
+  - applyTime
+  - removeTime
+  - LindisfarneBtn
+  - DublinBtn
+  - YorkBtn
+  - NovgorodBtn
+  - KiovBtn
+  - ConstantinopleBtn
+  - BagdadBtn
+  - ParisBtn
+  - BordeauxBtn
+  - LunaBtn
+  - LisbonneBtn
   layers:
   - Default
   - TransparentFX
