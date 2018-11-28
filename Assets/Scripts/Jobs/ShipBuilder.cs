@@ -17,20 +17,21 @@ public class ShipBuilder : Jobs {
 
 	// Constructor
 	public ShipBuilder() : base() {
-		durationForOneWorker = 4;
-		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
 	// Functions 
 
-	public override void determineQuantityAndDuration(){
-		// durationOfWork = Math.Max(durationForOneWorker / nbrOfPeopleAssigned , 1); // au moins un jour de travail
+	public override void determineQuantity(GameManager gameManager){
 		quantityOfProductBroughtBack = 1;
+	}
+
+	public override void updateProduct(GameManager gameManager, int timeSpent){
+		
 	}
 
 	public void assignWork(People people){
 		if (nbrOfAssignedPeopleChosen > 0 ){
-			addOrRemoveSeveralPerson(nbrOfAssignedPeopleChosen);
+			addOrRemoveSeveralSlave(nbrOfAssignedPeopleChosen);
 			workInProgress = true;
 			people.NbrOfSlave -= nbrOfAssignedPeopleChosen;
 			nbrOfAssignedPeopleChosen = 0;
@@ -50,8 +51,8 @@ public class ShipBuilder : Jobs {
 				// rajouter un navire dans Ships, differencier en fonction du type
 				ships.NbrOfShipType1 +=1;
 				// rajouter le nombre de slave
-				people.NbrOfSlave += nbrOfPeopleAssigned;
-				nbrOfPeopleAssigned = 0;
+				people.NbrOfSlave += nbrOfSlaveAssigned;
+				nbrOfSlaveAssigned = 0;
 				workInProgress = false;
 			} else if ( remainingTimeForConstruction > 0 ){
 				remainingTimeForConstruction -= 1;

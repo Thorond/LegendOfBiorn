@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slaves : MonoBehaviour {
+public class Slaves : Inhabitant {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public Slaves() : base() {
+		this.foodGatheringEfficiency = 4;
+		this.woodGatheringEfficiency = 2;
+		this.ironGatheringEfficiency = 1;
+		this.shipConstructionEffeciency = 2;
+		this.battleEfficiency = 0;
 	}
 }

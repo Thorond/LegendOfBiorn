@@ -5,15 +5,18 @@ using UnityEngine;
 public class People  {
 
 	// Variables
-	private Slaves[] slaves;
+	private Slaves slaves;
 	private int nbrOfSlave;
-	private Viking[] vikings;
+	private Viking vikings;
 	private int nbrOfVikings;
-	private ShieldMaiden[] shieldMaidens;
-	private int nbrOfShielMaidens;
+	private ShieldMaiden shieldMaidens;
+	private int nbrOfShieldMaidens;
 
 	// Getters and Setters 
 
+	public Slaves Slaves{get{return slaves;}}
+	public Viking Vikings{get{return vikings;}}
+	public ShieldMaiden ShieldMaidens{get{return shieldMaidens;}}
 	public int NbrOfSlave{
 		get{
 			return nbrOfSlave;
@@ -30,28 +33,35 @@ public class People  {
 			nbrOfVikings = value;
 		}
 	}
-	public int NbrOfShielMaidens{
+	public int NbrOfShieldMaidens{
 		get{
-			return nbrOfShielMaidens;
+			return nbrOfShieldMaidens;
 		}
 		set{
-			nbrOfShielMaidens = value;
+			nbrOfShieldMaidens = value;
 		}
 	}
 
 	// Constructor
 	public People(){
+		slaves = new Slaves();
+		shieldMaidens = new ShieldMaiden();
+		vikings = new Viking();
 		nbrOfSlave = 5;
 		nbrOfVikings = 20;
-		nbrOfShielMaidens = 10;
+		nbrOfShieldMaidens = 10;
 	}
 
 	// Functions
-
+	public string nameOfPeopleDisplay(){
+		return "\nVikings : " 
+			+ "\nShield-maidens : " 
+			+ "\nSlaves : " ;
+	}
 	public string textDisplay(){
-		return "Slaves : " + nbrOfSlave.ToString()
-			+ "\nVikings : " + nbrOfVikings.ToString()
-			+ "\nShield-maidens : " + nbrOfShielMaidens.ToString() ;
+		return "Available : \n" + nbrOfVikings.ToString()
+			+ "\n " + nbrOfShieldMaidens.ToString()
+			+ "\n" + nbrOfSlave.ToString() ;
 	}
 
 }

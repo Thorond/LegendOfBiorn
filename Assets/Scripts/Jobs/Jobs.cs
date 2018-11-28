@@ -6,43 +6,80 @@ public abstract class Jobs  {
 
 
 	// Variables
-	protected int nbrOfPeopleAssigned;
-	protected int durationOfWork;
-	protected int durationForOneWorker;
+	protected int nbrOfVikingAssigned;
+	protected int nbrOfShieldMaidenAssigned;
+	protected int nbrOfSlaveAssigned;
+
 	protected int quantityOfProductBroughtBack;
-	protected int quantityOfProductBroughtBackForOneWorker;
 
 	
 	// Constructor
 	public Jobs(){
-		nbrOfPeopleAssigned = 0;
-		durationOfWork = 0;
+		nbrOfVikingAssigned = 0;
+		nbrOfShieldMaidenAssigned = 0;
+		nbrOfSlaveAssigned = 0;
 		quantityOfProductBroughtBack = 0;
 	}
 
 
 
 	// Functions
-	public void assignAnotherPerson(){
-		nbrOfPeopleAssigned += 1;
+	public void assignAnotherViking(){
+		nbrOfVikingAssigned += 1;
 	}
-	public void removeAPerson(){
-		nbrOfPeopleAssigned -= 1;
+	public void removeAViking(){
+		nbrOfVikingAssigned -= 1;
 	}
-	public void addOrRemoveSeveralPerson(int nbr){
-		nbrOfPeopleAssigned = nbr;
+	public void addOrRemoveSeveralViking(int nbr){
+		nbrOfVikingAssigned = nbr;
+	}
+	public void assignAnotherShieldMaiden(){
+		nbrOfShieldMaidenAssigned += 1;
+	}
+	public void removeAShieldMaiden(){
+		nbrOfShieldMaidenAssigned -= 1;
+	}
+	public void addOrRemoveSeveralShieldMaiden(int nbr){
+		nbrOfShieldMaidenAssigned = nbr;
+	}
+	public void assignAnotherSlave(){
+		nbrOfSlaveAssigned += 1;
+	}
+	public void removeASlave(){
+		nbrOfSlaveAssigned -= 1;
+	}
+	public void addOrRemoveSeveralSlave(int nbr){
+		nbrOfSlaveAssigned = nbr;
 	}
 
-	public abstract void determineQuantityAndDuration();
+	public abstract void determineQuantity(GameManager gameManager);
+
+	public abstract void updateProduct(GameManager gameManager, int timeSpent);
 
 
 	// Getters and Setters
-	public int NbrOfPeopleAssigned{
+	public int NbrOfVikingAssigned{
 		get{
-			return nbrOfPeopleAssigned;
+			return nbrOfVikingAssigned;
 		}
 		set{
-			nbrOfPeopleAssigned = value;
+			nbrOfVikingAssigned = value;
+		}
+	}
+	public int NbrOfShieldMaidenAssigned{
+		get{
+			return nbrOfShieldMaidenAssigned;
+		}
+		set{
+			nbrOfShieldMaidenAssigned = value;
+		}
+	}
+	public int NbrOfSlaveAssigned{
+		get{
+			return nbrOfSlaveAssigned;
+		}
+		set{
+			nbrOfSlaveAssigned = value;
 		}
 	}
 }

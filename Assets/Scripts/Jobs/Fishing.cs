@@ -5,16 +5,16 @@ using UnityEngine;
 public class Fishing : Jobs {
 
 	public Fishing() : base() {
-		durationForOneWorker = 4;
-		quantityOfProductBroughtBackForOneWorker = 2;
 	}
 	
-	public override void determineQuantityAndDuration(){
-		// durationOfWork = nbrOfPeopleAssigned * durationForOneWorker;
-		quantityOfProductBroughtBack = nbrOfPeopleAssigned * quantityOfProductBroughtBackForOneWorker;
+	public override void determineQuantity(GameManager gameManager){
+		quantityOfProductBroughtBack = 0;
+		quantityOfProductBroughtBack += nbrOfVikingAssigned * gameManager.Resources.People.Vikings.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += nbrOfShieldMaidenAssigned * gameManager.Resources.People.ShieldMaidens.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += nbrOfSlaveAssigned * gameManager.Resources.People.Slaves.FoodGatheringEfficiency;
 	}
-	public void updateFood(GameManager gameManager, int timeSpent){
-		determineQuantityAndDuration();
+	public override void updateProduct(GameManager gameManager, int timeSpent){
+		determineQuantity(gameManager);
 		gameManager.Resources.Food += quantityOfProductBroughtBack * timeSpent;
 		if (gameManager.Resources.Food > gameManager.Resources.MaxFood ) gameManager.Resources.Food = gameManager.Resources.MaxFood; 
 	}

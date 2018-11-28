@@ -90,7 +90,6 @@ public class Resource {
 		return "Gold : " + gold.ToString()
 			+ "\nWood : " + wood.ToString()
 			+ "\nIron : " + iron.ToString()
-			+ "\nFood : " + food.ToString()
-			+ "\nShips : " + ships.NbrOfShipType1.ToString();
+			+ "\nFood : " + food.ToString();
 	}
 }

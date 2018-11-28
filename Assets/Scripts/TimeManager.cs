@@ -85,15 +85,20 @@ public class TimeManager : Singleton<TimeManager> {
 	
 	void updateResources(){
 		if ( timeElapsed > 0 ){
-			jobsManager.MyHuntingBuilding.updateFood(gameManager,timeElapsed * 3);
-			jobsManager.MyFishingBuilding.updateFood(gameManager,timeElapsed * 3);
+			// faire une fonction regroupant tout ça dans jobsmanager ou ici
+			jobsManager.MyHuntingBuilding.updateProduct(gameManager,timeElapsed * 3);
+			jobsManager.MyFishingBuilding.updateProduct(gameManager,timeElapsed * 3);
+			jobsManager.MyWoodBuilding.updateProduct(gameManager,timeElapsed * 3);
+			jobsManager.MyMineralBuilding.updateProduct(gameManager,timeElapsed * 3);
 			jobsManager.MyShipBuilderBuilding.RemainingTimeForConstruction -= timeElapsed;
 			jobsManager.MyShipBuilderBuilding.inConstruction(gameManager.Resources.Ships, gameManager.Resources.People );
 			timeElapsed = 0;
 		} else {
 			if ( DateTime.Now.Subtract(resourceFrequency).Seconds > TIME_OF_A_DAY_IN_SECONDS / 3 ){
-				jobsManager.MyHuntingBuilding.updateFood(gameManager,1);
-				jobsManager.MyFishingBuilding.updateFood(gameManager,1);
+				jobsManager.MyHuntingBuilding.updateProduct(gameManager,1);
+				jobsManager.MyFishingBuilding.updateProduct(gameManager,1);
+				jobsManager.MyWoodBuilding.updateProduct(gameManager,1);
+				jobsManager.MyMineralBuilding.updateProduct(gameManager,1);
 				resourceFrequency = DateTime.Now;
 			} 
 			// else if (DateTime.Now.Subtract(resourceFrequency).Seconds > TIME_OF_A_DAY_IN_SECONDS){

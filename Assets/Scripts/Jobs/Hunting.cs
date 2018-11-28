@@ -7,17 +7,16 @@ public class Hunting : Jobs {
 	// Variables
 
 	public Hunting() : base() {
-		durationForOneWorker = 2;
-		quantityOfProductBroughtBackForOneWorker = 1;
 	}
 	
-	public override void determineQuantityAndDuration(){
-		// durationOfWork = nbrOfPeopleAssigned * durationForOneWorker;
-		quantityOfProductBroughtBack = nbrOfPeopleAssigned * quantityOfProductBroughtBackForOneWorker;
+	public override void determineQuantity(GameManager gameManager){
+		quantityOfProductBroughtBack = 0;
+		quantityOfProductBroughtBack += this.nbrOfVikingAssigned * gameManager.Resources.People.Vikings.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += this.nbrOfShieldMaidenAssigned * gameManager.Resources.People.ShieldMaidens.FoodGatheringEfficiency;
+		quantityOfProductBroughtBack += this.nbrOfSlaveAssigned * gameManager.Resources.People.Slaves.FoodGatheringEfficiency;
 	}
-
-	public void updateFood(GameManager gameManager, int timeSpent){
-		determineQuantityAndDuration();
+	public override void updateProduct(GameManager gameManager, int timeSpent){
+		determineQuantity(gameManager);
 		gameManager.Resources.Food += quantityOfProductBroughtBack * timeSpent;
 		if (gameManager.Resources.Food > gameManager.Resources.MaxFood ) gameManager.Resources.Food = gameManager.Resources.MaxFood; 
 	}
