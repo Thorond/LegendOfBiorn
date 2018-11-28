@@ -51,7 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c359f99cc695eda4580dd4a397a76331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upBtn: {fileID: 1040652811272632, guid: 09e07c334acb0ce4b99b16fadd4072f0, type: 2}
+  gameManager: {fileID: 0}
   displayOfNbrOfHunter: {fileID: 0}
   displayOfNbrOfFisherMen: {fileID: 0}
   displayOfNbrOfShipBuilder: {fileID: 0}
+  displayOfNbrOfShip: {fileID: 0}
+  displayOfEfficiencyOfAViking: {fileID: 114095009241280530, guid: 52eeacaac2f918140a8b47fb6cecb3c1,
+    type: 2}
+  displayOfEfficiencyOfAShieldMaiden: {fileID: 114207659420160586, guid: d51aca6cc80263e4c83ed638c065a63f,
+    type: 2}
+  displayOfEfficiencyOfASlave: {fileID: 114700047723110888, guid: c807fb12fbdd3124890ecfcdf9fc6ffa,
+    type: 2}
