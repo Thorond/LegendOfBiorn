@@ -14,6 +14,8 @@ public class JobsManager : Singleton<JobsManager> {
 	private Hunting myHuntingBuilding;
 	private Fishing myFishingBuilding;
 	private ShipBuilder myShipBuilderBuilding;
+	private MineralGathering myMineralBuilding;
+	private WoodGathering myWoodBuilding;
 
 	
 	[SerializeField] private GameManager gameManager;
@@ -56,6 +58,9 @@ public class JobsManager : Singleton<JobsManager> {
 	public Hunting MyHuntingBuilding { get{return myHuntingBuilding;}}
 	public Fishing MyFishingBuilding { get{return myFishingBuilding;}}
 	public ShipBuilder MyShipBuilderBuilding { get{return myShipBuilderBuilding;}}
+	public MineralGathering MyMineralBuilding { get{return myMineralBuilding;}}
+	public WoodGathering MyWoodBuilding { get{return myWoodBuilding;}}
+
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +68,8 @@ public class JobsManager : Singleton<JobsManager> {
 		myHuntingBuilding = new Hunting();
 		myFishingBuilding = new Fishing();
 		myShipBuilderBuilding = new ShipBuilder();
+		myMineralBuilding = new MineralGathering();
+		myWoodBuilding = new WoodGathering();
 
 		textDisplay();
 
@@ -123,30 +130,8 @@ public class JobsManager : Singleton<JobsManager> {
 	}
 
 	public void peopleAssignement( ){
-		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
-			if ( upOrDownBtnPressed.tag == tagUpOrDown.upSlave.ToString() && gameManager.Resources.People.NbrOfSlave > 0 ){
-				myHuntingBuilding.assignAnotherSlave();
-				gameManager.Resources.People.NbrOfSlave -= 1;
-			}
-			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downSlave.ToString() && myHuntingBuilding.NbrOfSlaveAssigned > 0 ){
-				myHuntingBuilding.removeASlave();
-				gameManager.Resources.People.NbrOfSlave += 1;
-			} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upViking.ToString() && gameManager.Resources.People.NbrOfVikings > 0 ){
-				myHuntingBuilding.assignAnotherViking();
-				gameManager.Resources.People.NbrOfVikings -= 1;
-			}
-			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downViking.ToString() && myHuntingBuilding.NbrOfVikingAssigned > 0 ){
-				myHuntingBuilding.removeAViking();
-				gameManager.Resources.People.NbrOfVikings += 1;
-			} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upShieldMaiden.ToString() && gameManager.Resources.People.NbrOfShieldMaidens > 0 ){
-				myHuntingBuilding.assignAnotherShieldMaiden();
-				gameManager.Resources.People.NbrOfShieldMaidens -= 1;
-			}
-			else if ( upOrDownBtnPressed.tag == tagUpOrDown.downShieldMaiden.ToString() && myHuntingBuilding.NbrOfShieldMaidenAssigned > 0 ){
-				myHuntingBuilding.removeAShieldMaiden();
-				gameManager.Resources.People.NbrOfShieldMaidens += 1;
-			}
-		} 
+		huntingAssignement();
+		rawMaterialAssignement();
 		if ( gameManager.Resources.People.NbrOfSlave > 0 ) {
 			// if ( jobsBtnPressed.tag.Equals(tagBtn.fishingBtnUp.ToString())){
 			// 	myFishingBuilding.assignAnotherPerson();
@@ -169,6 +154,52 @@ public class JobsManager : Singleton<JobsManager> {
 		// }
 	}
 
+	public void jobAssignement(Jobs myJobBuilding){
+		if ( upOrDownBtnPressed.tag == tagUpOrDown.upSlave.ToString() && gameManager.Resources.People.NbrOfSlave > 0 ){
+			myJobBuilding.assignAnotherSlave();
+			gameManager.Resources.People.NbrOfSlave -= 1;
+		}
+		else if ( upOrDownBtnPressed.tag == tagUpOrDown.downSlave.ToString() && myJobBuilding.NbrOfSlaveAssigned > 0 ){
+			myJobBuilding.removeASlave();
+			gameManager.Resources.People.NbrOfSlave += 1;
+		} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upViking.ToString() && gameManager.Resources.People.NbrOfVikings > 0 ){
+			myJobBuilding.assignAnotherViking();
+			gameManager.Resources.People.NbrOfVikings -= 1;
+		}
+		else if ( upOrDownBtnPressed.tag == tagUpOrDown.downViking.ToString() && myJobBuilding.NbrOfVikingAssigned > 0 ){
+			myJobBuilding.removeAViking();
+			gameManager.Resources.People.NbrOfVikings += 1;
+		} else if ( upOrDownBtnPressed.tag == tagUpOrDown.upShieldMaiden.ToString() && gameManager.Resources.People.NbrOfShieldMaidens > 0 ){
+			myJobBuilding.assignAnotherShieldMaiden();
+			gameManager.Resources.People.NbrOfShieldMaidens -= 1;
+		}
+		else if ( upOrDownBtnPressed.tag == tagUpOrDown.downShieldMaiden.ToString() && myJobBuilding.NbrOfShieldMaidenAssigned > 0 ){
+			myJobBuilding.removeAShieldMaiden();
+			gameManager.Resources.People.NbrOfShieldMaidens += 1;
+		}
+		
+	}
+
+	public void huntingAssignement(){
+		if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString() ){
+			jobAssignement(myHuntingBuilding);
+		}
+	}
+
+	public void rawMaterialAssignement(){
+		if ( jobsBtnPressed.tag == tagBtnJob.rawMaterialBtn.ToString() ){
+			if (woodOrIronBtnPressed){
+				if ( woodOrIronBtnPressed.tag == tagPanel.woodBtn.ToString()){
+					jobAssignement(myWoodBuilding);
+				} else {
+					jobAssignement(myMineralBuilding);
+				}
+			} else{
+				jobAssignement(myWoodBuilding);
+			}
+		}
+	}
+
 
 	public void textDisplay(){
 		displayOfNbrOfHunter.text = "Hunting : \n Vikings : " + myHuntingBuilding.NbrOfVikingAssigned.ToString()
@@ -182,6 +213,8 @@ public class JobsManager : Singleton<JobsManager> {
 				+ "\n Slaves : "  + myShipBuilderBuilding.NbrOfSlaveAssigned.ToString();
 		displayOfNbrOfShip.text = "Ships  \n Type 1 : " + gameManager.Resources.Ships.NbrOfShipType1.ToString();
 
+
+		// Affichage de l'efficacité de chaque personnes (Viking ou ShieldMaiden ou Slave) en fonction du travail demandé
 		if (jobsBtnPressed){
 			if ( jobsBtnPressed.tag == tagBtnJob.huntingBtn.ToString()  ){
 				displayOfEfficiencyOfAViking.text = gameManager.Resources.People.Vikings.FoodGatheringEfficiency.ToString();

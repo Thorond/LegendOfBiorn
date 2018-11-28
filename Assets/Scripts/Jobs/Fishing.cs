@@ -13,7 +13,7 @@ public class Fishing : Jobs {
 		quantityOfProductBroughtBack += nbrOfShieldMaidenAssigned * gameManager.Resources.People.ShieldMaidens.FoodGatheringEfficiency;
 		quantityOfProductBroughtBack += nbrOfSlaveAssigned * gameManager.Resources.People.Slaves.FoodGatheringEfficiency;
 	}
-	public void updateFood(GameManager gameManager, int timeSpent){
+	public override void updateProduct(GameManager gameManager, int timeSpent){
 		determineQuantity(gameManager);
 		gameManager.Resources.Food += quantityOfProductBroughtBack * timeSpent;
 		if (gameManager.Resources.Food > gameManager.Resources.MaxFood ) gameManager.Resources.Food = gameManager.Resources.MaxFood; 

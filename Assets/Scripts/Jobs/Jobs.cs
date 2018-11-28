@@ -54,6 +54,8 @@ public abstract class Jobs  {
 
 	public abstract void determineQuantity(GameManager gameManager);
 
+	public abstract void updateProduct(GameManager gameManager, int timeSpent);
+
 
 	// Getters and Setters
 	public int NbrOfVikingAssigned{

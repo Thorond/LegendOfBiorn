@@ -25,6 +25,10 @@ public class ShipBuilder : Jobs {
 		quantityOfProductBroughtBack = 1;
 	}
 
+	public override void updateProduct(GameManager gameManager, int timeSpent){
+		
+	}
+
 	public void assignWork(People people){
 		if (nbrOfAssignedPeopleChosen > 0 ){
 			addOrRemoveSeveralSlave(nbrOfAssignedPeopleChosen);
